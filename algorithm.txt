@@ -1,0 +1,12 @@
+{input}
+
+{output}
+csv
+[Date]
+[Improvement]
+[Place]
+[output]
+[Main]
+[Satisfaction]
+[learning material]
+
