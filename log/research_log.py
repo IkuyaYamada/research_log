@@ -2,7 +2,7 @@ import time
 from OutputClass import Output
 
 # check duplication 
-#Output().check()
+Output().check()
 
 # gather achivement
 time_str = time.asctime()
@@ -21,5 +21,8 @@ op.show()
 # output to the csv
 current_time = op.time()
 data_list = [current_time, improvement, material, place, plan]
-columns_list = ["time", "improvement", "material", "place", "plan"]
-op.store(data_list, columns_list)
+columns_list = ["time", "improvement", "materials", "working place", "tomorrow's plan"]
+inintal = op.initializaion(data_list, columns_list)
+if inintal == False:
+	op.csv(data_list, columns_list)
+op.encouraging_phrase()
