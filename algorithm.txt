@@ -1,12 +1,5 @@
 {input}
-
+その日の進捗状況をインタラクティブに記入する。
 {output}
 csv
-[Date]
-[Improvement]
-[Place]
-[output]
-[Main]
-[Satisfaction]
-[learning material]
-
+多分HTMMLの方がデザインとして見やすいのでcsvをHTMLにして渡す。

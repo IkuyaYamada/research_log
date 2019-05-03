@@ -1,0 +1,38 @@
+<!reference: https://qiita.com/cnloni/items/5de03096a73c702b97ed>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.9/jquery.csv.min.js"></script>
+	<script>
+		function readCsv(data){
+			var target = '#csv-body';
+			var csv = $.csv.toArrays(data);
+			var insert = '';
+			$(csv).each(function(){
+				if (this.length > 0){
+					insert += '<tr>';
+					$(this).each(function(){
+						insert += '<td>' + this + '<td>';
+					});
+					insert += '</tr>';
+				}
+			});
+			$(target).append(insert);
+		}
+		var csvfile = "temporal_log.csv";
+		$(function(){
+			$.get(csvfile, readCsv, 'text');
+		});
+	</script>
+	<title>My Research Log</title>
+</head>
+<body>
+	<table border="表">
+		<caption>Research Log</caption>
+		<tbody id="csv-body">
+		</tbody>
+	</table>
+</body>
+</html>

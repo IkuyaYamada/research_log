@@ -25,8 +25,8 @@ op.show()
 
 # output to the csv
 current_time = op.time()
-data_list = [current_time, improvement, finding, material, place, plan, comment]
-columns_list = ["time", "improvement", "findings", "materials", "working place", "tomorrow's plan", "comment"]
+data_list = [current_time, improvement, material, place, plan, comment]
+columns_list = ["time", "improvement", "materials", "working place", "tomorrow's plan", "comment"]
 inintal = op.initializaion(data_list, columns_list, True)
 inintal = op.initializaion(data_list, columns_list, False)
 if inintal == False:
