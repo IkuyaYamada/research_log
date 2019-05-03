@@ -36,16 +36,23 @@ class Output:
 		hour, minutes = str(localtime[3]), format(localtime[4], "02")
 		return ".".join(map(str, localtime[0:3]))+" "+ hour +":"+minutes
 
-	def multiple_input(self, passage=None):
+	def multiple_input(self, passage):
 		"""to obtain multiple lines from input"""
-		print(passege)
-		try:
-			while True:
-				data = input()
-				if not data:break
-				yield data
-		except KeyboadInterrupt:
-			return
+		separate = "-"*50
+		print(passage + " <enter 'q' to end> & <enter 'r'' to redo>\n"+ separate)
+		list_ = []
+		while True:
+			i = input()
+			if i == "q":
+				break
+			elif i == "r":
+				self.multiple_input(passage)
+				break
+			else:
+				list_.append(i)
+		while "" in list_:
+			list_.remove("")
+		return list_
 
 	def check(self):
 		"""to check duplication"""
@@ -62,7 +69,7 @@ class Output:
 					self.encouraging_phrase()
 					exit()
 				elif input_ =="y":
-					print("okay, move on")
+					#print("okay, move on")
 					break
 				else:
 					print("Please answer with 'y' or 'n'")
@@ -90,13 +97,33 @@ class Output:
 		"You can’t make an omelette without breaking eggs.",
 		"すっごーい"
 		]
-		separate = "/"*100
+		separate = "/"*50
 		print("\n"+separate+"\n"+"/////// "+random.choice(phrases)+" /////////////"+"\n"+separate)
 
 
+class DeleteLines:
+	
+	""" to delete lines of existing files """
 
+	def __init__(self, file):
+		self.file = file
+		self.data = pd.read_csv(file)
 
+	def show(self):
+		data = self.data
+		return(data)
 
-
-
+	def delete(self, num=1):
+		"""delete and output"""
+		data = self.data
+		rows = len(data)
+		drop_list = list(range(rows-num, rows))
+		print(data.iloc[drop_list])
+		i = input("Do you want to delete last {} lines? <yes or no>\n".format(num))
+		if i == "yes":
+			data = data.drop(drop_list)
+			data.to_csv(self.file, index=False)
+			return
+		else:
+			pass
 
