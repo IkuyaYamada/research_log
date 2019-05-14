@@ -46,8 +46,8 @@ class Output:
 			if i == "q":
 				break
 			elif i == "r":
-				self.multiple_input(passage)
-				break
+				print(passage + " <enter 'q' to end> & <enter 'r'' to redo>\n"+ separate)
+				list_ = []
 			else:
 				list_.append(i)
 		while "" in list_:

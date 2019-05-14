@@ -9,9 +9,13 @@ Output().check()
 # gather achivement
 n_of_lines = 5
 time_str = time.asctime()
+
+# caution
+print("the redo function does not work as you expect, avoid using it")
+
 # weather = Output().weather()
 separate = "-"*50
-improvement = inputs("\nany improvement?")
+improvement = inputs("\nany progress?")
 print(separate)
 finding = inputs("\nnew findings?")
 print(separate)
