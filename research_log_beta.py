@@ -43,3 +43,16 @@ if inintal == False:
 	op.csv(data_list, columns_list)
 op.encouraging_phrase()
 
+# Sending contents via LINE
+from Notification.Notify_bot  import LineNotifyAPI as LN
+ 
+message = "\ntomorrow plan: {} \ncomment:{}".format("\n".join(plan), "\n".join(comment))
+
+tome_token = 'eemHbY4riW0drjOwx9x2drcjszNEWM2mrbtWWXiIICs' 
+bot = LN(access_token=tome_token)
+bot.send(
+	message=message,
+	#image="/Users/yamadaikuya/Desktop/cat.png",
+	stickerPackageId=1, 
+	stickerId=10,
+	)

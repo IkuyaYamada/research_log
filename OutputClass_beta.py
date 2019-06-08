@@ -64,7 +64,7 @@ class Output:
 		if data["time"][0][5]==str(localtime[1]) and data["time"][0][7]==str(localtime[2]):
 			while True:
 				input_ = input("---CAUTION---\n"+\
-					"it appears you have already filled in, do you want to continue? <y or n>\n")
+					"you have already filled in, do you want to continue? <y or n>\n")
 				if input_=="n":
 					self.encouraging_phrase()
 					exit()
