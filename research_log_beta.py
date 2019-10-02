@@ -1,3 +1,4 @@
+import readline
 import time
 from OutputClass_beta import Output
 
@@ -46,13 +47,14 @@ op.encouraging_phrase()
 # Sending contents via LINE
 from Notification.Notify_bot  import LineNotifyAPI as LN
  
-message = "\ntomorrow plan: {} \ncomment:{}".format("\n".join(plan), "\n".join(comment))
+message = "\n[Findings]\n{}\n[Tomorrow plan]\n{}\n[Comments]\n{}".format(\
+	"\n".join(finding), "\n".join(plan), "\n".join(comment))
 
 tome_token = 'eemHbY4riW0drjOwx9x2drcjszNEWM2mrbtWWXiIICs' 
 bot = LN(access_token=tome_token)
 bot.send(
 	message=message,
 	#image="/Users/yamadaikuya/Desktop/cat.png",
-	stickerPackageId=1, 
-	stickerId=10,
+	#stickerPackageId=1, 
+	#stickerId=10,
 	)

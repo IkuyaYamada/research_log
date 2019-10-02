@@ -1,11 +1,14 @@
+# coding: UTF-8
+
 import os, sys
 import pandas as pd
 from pandas import DataFrame as df
-import time 
+import time
 import random
+import readline
 
 class Output:
-	
+
 	"""class use training"""
 
 	def __init__(self, *show):
@@ -16,7 +19,7 @@ class Output:
 			path ="/Users/yamadaikuya/Desktop/research_log_beta.csv"
 		else:
 			path ="/Users/yamadaikuya/gitrepos/research_log/log_beta/temporal_log_beta.csv"
-		
+
 		if os.path.exists(path)==True:
 			return False
 		else:
@@ -25,7 +28,7 @@ class Output:
 			data_.to_csv(path, header=True ,index=False)
 			self.encouraging_phrase()
 			sys.exit()
-			
+
 
 	def show(self):
 		self.__show = "".join(self.__show)
@@ -59,7 +62,7 @@ class Output:
 		localtime = time.localtime()
 		path = "/Users/yamadaikuya/gitrepos/research_log/log_beta/temporal_log_beta.csv"
 		if os.path.exists(path)==False:
-			return 
+			return
 		data = pd.read_csv("/Users/yamadaikuya/gitrepos/research_log/log_beta/temporal_log_beta.csv", index_col=False)
 		if data["time"][0][5]==str(localtime[1]) and data["time"][0][7]==str(localtime[2]):
 			while True:
@@ -82,27 +85,30 @@ class Output:
 			columns=columns_list
 			)
 		return data
-	
+
 	def csv(self, data_list, columns_list):
 		data_ = self.store(data_list, columns_list)
-		data_.to_csv("/Users/yamadaikuya/gitrepos/research_log/log_beta/temporal_log_beta.csv", index=False) #毎回一応とっておく。
+		data_.to_csv("/Users/yamadaikuya/gitrepos/research_log/log_beta/temporal_log_beta.csv", index=False)
+		# temporal file, for backup
 		data_.to_csv("/Users/yamadaikuya/Desktop/research_log_beta.csv", mode="a", header=False ,index=False)
 
 	def encouraging_phrase(self):
 		phrases = [
 		"Where there is a will, there is a way.",
 		"No Pain, No Gain.",
-		"You will lose nothing. So what? Just do it!",	
+		"You will lose nothing. So what? Just do it!",
 		"The only one who can beat me is me.",
 		"You can’t make an omelette without breaking eggs.",
-		"すっごーい"
+		"You can't climb the ladder of success with your hands in your pockets.", 
+		"すっごーい",
+                "Discipline is the bridge between goals and accomplishment"
 		]
 		separate = "/"*50
 		print("\n"+separate+"\n"+"/////// "+random.choice(phrases)+" /////////////"+"\n"+separate)
 
 
 class DeleteLines:
-	
+
 	""" to delete lines of existing files """
 
 	def __init__(self, file):
@@ -126,4 +132,3 @@ class DeleteLines:
 			return
 		else:
 			pass
-
